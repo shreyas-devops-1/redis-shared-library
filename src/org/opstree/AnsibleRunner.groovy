@@ -22,7 +22,7 @@ class AnsibleRunner implements Serializable {
         steps.sh """
             export ANSIBLE_HOST_KEY_CHECKING=False
             ansible-playbook ${playbook} -i ${inventory} --syntax-check
-            ansible-inventory  -i ${inventory} --list
+            ansible-inventory -i ${inventory} --list
         """
     }
 
