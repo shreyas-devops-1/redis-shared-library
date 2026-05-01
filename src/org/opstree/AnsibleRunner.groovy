@@ -40,7 +40,8 @@ class AnsibleRunner implements Serializable {
             export ANSIBLE_HOST_KEY_CHECKING=False
             ansible ${hosts} \
               -i ${inventory} \
-              -m shell -a "${command}" \
+              -m shell \
+              -a '${command}' \
               --become
         """
     }
