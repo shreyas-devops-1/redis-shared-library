@@ -10,13 +10,13 @@ class SSMDeploy implements Serializable {
 
     def runCommand(String instanceId, String repoUrl, String playbook, String region="us-east-1") {
 
-        steps.echo "Starting SSM deployment to instance: ${instanceId}"
+        steps.echo "SSM deploy → Instance: ${instanceId}, Region: ${region}"
 
         steps.sh """
         aws ssm send-command \
           --instance-ids ${instanceId} \
           --document-name "AWS-RunShellScript" \
-          --comment "Deploy Redis via Ansible" \
+          --comment "Deploy via Ansible" \
           --parameters commands='[
             "cd /home/ubuntu",
             "rm -rf redis-cd",
